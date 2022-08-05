@@ -1,0 +1,40 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[3][4];
+	int cnt = 0;
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			scanf("%d", &arr[i][j]);
+		}
+	}
+
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			if (arr[i][j] == 0)
+				cnt++;
+		}
+		if (cnt == 0) {
+			printf("E");
+		}
+		else if (cnt == 1) {
+			printf("A");
+		}
+		else if (cnt == 2) {
+			printf("B");
+		}
+		else if(cnt == 3) {
+			printf("C");
+		}
+		else {
+			printf("D");
+		}
+		if (i < 2) {
+			printf("\n");
+		}
+		cnt = 0;
+	}
+}
