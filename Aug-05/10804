@@ -1,0 +1,42 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	int arr[10][2];
+	int card[20];
+
+	for (int i = 0; i < 20; i++) {
+		card[i] = i + 1;
+	} //카드
+
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 2; j++) {
+			scanf("%d", &arr[i][j]);
+		}
+	} //교환범위 10개
+
+	for (int i = 0; i < 10; i++) {
+		int a = arr[i][0] -1;
+		int b = arr[i][1] -1;
+		int cnt;
+		int tmp;
+		cnt = 0; //초기화
+
+		for (int j = 0; j < (b - a + 1) / 2; j++) {
+			tmp = card[a+cnt];
+			card[a + cnt] = card[b - cnt];
+			card[b - cnt] = tmp;
+			cnt++;
+		}
+	}
+
+	for (int i = 0; i < 20; i++) {
+		printf("%d", card[i]);
+		if (i < 19) {
+			printf(" ");
+		}
+	} //출력
+
+	return 0;
+}
