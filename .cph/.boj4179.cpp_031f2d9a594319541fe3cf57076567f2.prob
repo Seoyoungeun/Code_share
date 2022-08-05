@@ -1,0 +1,1 @@
+{"name":"Local: boj4179","url":"c:\\Programming\\C_C++\\boj4179.cpp","tests":[{"id":1653710649130,"input":"4 4\n####\n#JF#\n#..#\n#..#","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Programming\\C_C++\\boj4179.cpp","group":"local","local":true}

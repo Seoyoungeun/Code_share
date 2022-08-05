@@ -1,0 +1,1 @@
+{"name":"Local: boj2562","url":"c:\\Programming\\algo\\boj2562.cpp","tests":[{"id":1659688474643,"input":"3\n29\n38\n12\n57\n74\n40\n85\n61","output":"85\n8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Programming\\algo\\boj2562.cpp","group":"local","local":true}
