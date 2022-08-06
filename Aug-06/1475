@@ -1,0 +1,49 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+
+int main(void) {
+	int N;
+	int cnt[10];
+	int tmp;
+	int spc;
+	int max = 0;
+
+	for (int i = 0; i < 10; i++) {
+		cnt[i] = 0;
+	}
+	scanf("%d", &N);
+
+	while (1) {
+		tmp = N % 10;
+		cnt[tmp]++;
+		if (N / 10 == 0) {
+			break;
+		}
+		N = N / 10;
+	}
+
+	spc = cnt[6] + cnt[9];
+
+	if (spc % 2 == 1) {
+		spc = spc / 2 + 1;
+	}
+	else {
+		spc = spc / 2;
+	}
+
+
+	for (int i = 0; i < 10; i++) {
+		if (i == 6 || i == 9)
+			continue;
+		if (max < cnt[i]) {
+			max = cnt[i];
+		}
+	}
+
+	if (max < spc) {
+		max = spc;
+	}
+
+	printf("%d", max);
+}
