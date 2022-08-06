@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+	char a[1000];
+	char b[1000];
+	char alphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+	int cnt1[26];
+	int cnt2[26];
+	int cnt = 0;
+	int tmp;
+
+	for (int i = 0; i < 26; i++) {
+		cnt1[i] == 0;
+		cnt2[i] == 0;
+	}
+
+	scanf("%s", a);
+	scanf("%s", b);
+
+	for (int i = 0; i < strlen(a); i++) {
+		for (int j = 0; j < 26; j++) {
+			if (a[i] == alphabet[j]) {
+				cnt1[j]++;
+			}
+		}
+	}
+
+	for (int i = 0; i < strlen(b); i++) {
+		for (int j = 0; j < 26; j++) {
+			if (b[i] == alphabet[j]) {
+				cnt2[j]++;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; i++) {
+		if (cnt1[i] == cnt2[i]) {
+			continue;
+		}
+		else if (cnt1[i] > cnt2[i]) {
+			tmp = cnt1[i] - cnt2[i];
+			cnt = cnt + tmp;
+		}
+		else {
+			tmp = cnt2[i] - cnt1[i];
+			cnt = cnt + tmp;
+		}
+	}
+
+	printf("%d", cnt);
+}
