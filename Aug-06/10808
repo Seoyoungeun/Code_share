@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+	char S[100];
+	char alphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+	int alpha[26];
+
+	for (int i = 0; i < 26; i++) {
+		alpha[i] = 0;
+	}
+
+	scanf("%s", S);
+
+	for (int i = 0; i < strlen(S); i++) {
+		for (int j = 0; j < 26; j++) {
+			if (S[i] == alphabet[j]) {
+				alpha[j]++;
+			}
+		}
+	}
+
+	for (int i = 0; i < 26; i++) {
+		printf("%d ", alpha[i]);
+	}
+
+	return 0;
+}
