@@ -1,0 +1,97 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void merge(int* list, int left, int mid, int right) {
+	int i, j, k, l;
+	i = left;
+	j = mid + 1;
+	k = left;
+
+	int* arr = (int*)malloc(sizeof(int) * (right + 1));
+	
+	while (i <= mid && j <= right) {
+		if (list[i] <= list[j])
+			arr[k++] = list[i++];
+		else
+			arr[k++] = list[j++];
+	}
+
+	if (i > mid) {
+		for (l = j; l <= right; l++)
+			arr[k++] = list[l];
+	}
+	else {
+		for (l = i; l <= mid; l++)
+			arr[k++] = list[l];
+	}
+
+	for (l = left; l <= right; l++) {
+		list[l] = arr[l];
+	}
+
+	free(arr);
+}
+
+void merge_sort(int* list, int left, int right) {
+	int mid;
+	if (left < right) {
+		mid = (left + right) / 2;
+		merge_sort(list, left, mid);
+		merge_sort(list, mid + 1, right);
+		merge(list, left, mid, right);
+	}
+}
+
+int binarysearch(int list[], int n, int key) {
+	int low, mid, high;
+
+	low = 0; high = n - 1;
+
+	while (low <= high) {
+		mid = (low + high) / 2;
+		if (key == list[mid]) {
+			return 10;
+		}
+		else if (key < list[mid]) {
+			high = mid - 1;
+		}
+		else {
+			low = mid + 1;
+		}
+	}
+	return 11;
+}
+
+int main(void) {
+	int n;
+	int x;
+	int sum;
+	int cnt = 0;
+
+	scanf("%d", &n);
+
+	int* list = (int*)malloc(sizeof(int) * n);
+
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &list[i]);
+	}
+
+	merge_sort(list, 0, n - 1);
+
+	scanf("%d", &x);
+
+	for (int i = 0; i < n; i++) {
+		sum = binarysearch(list, n, x-list[i]);
+		if (sum == 10) {
+			cnt++;
+		}
+	}
+
+	free(list);
+
+	printf("%d", cnt / 2);
+
+	return 0;
+}
