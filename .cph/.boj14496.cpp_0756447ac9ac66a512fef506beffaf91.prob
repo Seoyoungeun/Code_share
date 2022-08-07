@@ -1,1 +1,0 @@
-{"name":"Local: boj14496","url":"c:\\Programming\\C_C++\\boj14496.cpp","tests":[{"id":1652521879695,"input":"1 2\n4 4\n1 3\n1 4\n3 2\n4 2","output":"2"},{"id":1652521889437,"input":"2 3\n3 3\n1 2\n1 3\n3 2","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Programming\\C_C++\\boj14496.cpp","group":"local","local":true}
